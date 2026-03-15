@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Chilli Restaurant</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Times New Roman", Times, serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0a0a0a;
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+background:#111;
+position:fixed;
+width:100%;
+z-index:1000;
+}
+
+.logo{
+font-size:22px;
+font-weight:600;
+color:#2ecc71;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#2ecc71;
+}
+
+/* HERO SLIDER */
+
+.hero{
+height:100vh;
+position:relative;
+overflow:hidden;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:opacity 1.5s ease-in-out;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.overlay h1{
+font-size:50px;
+margin-bottom:10px;
+animation:fadeUp 1.5s;
+}
+
+.overlay p{
+color:#ddd;
+margin-bottom:25px;
+}
+
+.btns{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.btn{
+background:#2ecc71;
+padding:12px 25px;
+border-radius:30px;
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+background:#27ae60;
+}
+
+/* SEARCH BAR (ADDED) */
+
+.search-container{
+margin-top:120px;
+text-align:center;
+}
+
+#searchInput{
+padding:12px 20px;
+width:60%;
+max-width:400px;
+border-radius:30px;
+border:none;
+outline:none;
+font-size:16px;
+background:#1c1c1c;
+color:white;
+box-shadow:0 0 10px rgba(0,0,0,0.6);
+transition:0.3s;
+}
+
+/* MENU */
+
+.menu{
+padding:90px 8%;
+}
+
+.menu h2{
+text-align:center;
+margin-bottom:40px;
+color:#2ecc71;
+font-size:35px;
+}
+
+.category{
+margin-bottom:50px;
+}
+
+.category h3{
+margin-bottom:20px;
+color:#f1f1f1;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
+background:#151515;
+border-radius:12px;
+overflow:hidden;
+transition:0.4s;
+box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 10px 30px rgba(0,0,0,0.8);
+}
+
+.card img{
+width:100%;
+height:170px;
+object-fit:cover;
+}
+
+.info{
+padding:15px;
+}
+
+.info h4{
+margin-bottom:5px;
+}
+
+.price{
+color:#2ecc71;
+font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+text-align:center;
+padding:25px;
+color:#aaa;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.overlay h1{
+font-size:32px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+<div class="logo">Green Chilli</div>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#menu">Menu</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092')"></div>
+
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1555992336-03a23c7b20ee')"></div>
+
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836')"></div>
+
+<div class="overlay">
+
+<h1>Green Chilli Restaurant</h1>
+<p>Authentic Taste • Premium Experience</p>
+
+<div class="btns">
+
+<a class="btn" href="tel:+911234567890">Call Now</a>
+
+<a class="btn" target="_blank" href="https://maps.google.com">View Location</a>
+
+<a class="btn" target="_blank"
+href="https://wa.me/911234567890?text=Hello%20I%20want%20to%20order%20food">
+Order on WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SEARCH BAR ADDED -->
+
+<div class="search-container">
+<input type="text" id="searchInput" placeholder="Search food like Biryani, Noodles...">
+</div>
+
+<!-- MENU -->
+
+<section class="menu" id="menu">
+
+<h2>Our Menu</h2>
+
+<!-- BIRYANI -->
+
+<div class="category">
+
+<h3>Biryani</h3>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7">
+<div class="info">
+<h4>Chicken Biryani</h4>
+<p class="price">₹220</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://static.vecteezy.com/system/resources/previews/048/067/066/non_2x/biryani-dish-a-bowl-of-delicious-mutton-biryani-isolated-illustration-on-a-transparent-background-png.png">
+<div class="info">
+<h4>Mutton Biryani</h4>
+<p class="price">₹320</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f">
+<div class="info">
+<h4>Veg Biryani</h4>
+<p class="price">₹180</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- STARTERS -->
+
+<div class="category">
+
+<h3>Starters</h3>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7">
+<div class="info">
+<h4>Dragon Chicken</h4>
+<p class="price">₹190</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1605478371310-a9f1e96b4ff4">
+<div class="info">
+<h4>Chicken 65</h4>
+<p class="price">₹170</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec">
+<div class="info">
+<h4>Paneer Tikka</h4>
+<p class="price">₹160</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- CHINESE -->
+
+<div class="category">
+
+<h3>Chinese</h3>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246">
+<div class="info">
+<h4>Chicken Noodles</h4>
+<p class="price">₹150</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b">
+<div class="info">
+<h4>Fried Rice</h4>
+<p class="price">₹140</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0">
+<div class="info">
+<h4>Manchurian</h4>
+<p class="price">₹160</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- DRINKS -->
+
+<div class="category">
+
+<h3>Drinks</h3>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87">
+<div class="info">
+<h4>Mango Juice</h4>
+<p class="price">₹80</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1544145945-f90425340c7e">
+<div class="info">
+<h4>Fresh Lime Soda</h4>
+<p class="price">₹60</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://cdn.pixabay.com/photo/2024/06/26/06/58/ai-generated-8854172_1280.jpg">
+<div class="info">
+<h4>Cold Coffee</h4>
+<p class="price">₹120</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Green Chilli Restaurant • Premium Dining Experience
+
+</footer>
+
+<script>
+
+/* HERO SLIDER */
+
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function changeSlide(){
+
+slides[index].classList.remove("active");
+
+index++;
+
+if(index >= slides.length){
+index = 0;
+}
+
+slides[index].classList.add("active");
+
+}
+
+setInterval(changeSlide,4000);
+
+/* SEARCH FUNCTION ADDED */
+
+let searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup",function(){
+
+let value = this.value.toLowerCase();
+
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(function(card){
+
+let text = card.innerText.toLowerCase();
+
+if(text.includes(value)){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
